@@ -15,7 +15,13 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const formData = {
+        email: this.state.email,
+        password: this.state.password,
+      };
+      console.log(formData);
+      const res = await axios.post('http://localhost:3000/auth/login', formData);
+      console.log('API Response:', res);
       localStorage.setItem('token', res.data.token);
       window.location.href = '/dashboard';
     } catch (err) {

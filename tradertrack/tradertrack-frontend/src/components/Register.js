@@ -16,8 +16,15 @@ const Register = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const formData = {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+      };
+      console.log(formData);
+      const res = await axios.post('http://localhost:3000/auth/register', formData);
       localStorage.setItem('token', res.data.token);
+      console.log(res.data);  
       window.location.href = '/dashboard';
     } catch (err) {
       console.error(err.response.data);
