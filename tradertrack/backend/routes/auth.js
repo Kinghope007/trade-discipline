@@ -33,6 +33,7 @@ router.post('/register', async (req, res) => {
       res.json({
         message: "Successful!",
         token,
+        payload,
       });
     });
   } catch (err) {
