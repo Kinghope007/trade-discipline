@@ -15,14 +15,15 @@ app.use(cors());
 app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/daily', tradeRoutes);
-
+app.use('/uploads', express.static(path.join(__dirname, 'uploads',))); 
+app.use(express.static(path.join(__dirname, 'public')));
 // Serve the dashboard from the public directory
 app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
 app.use(cors({
-  origin: 'http://', // Replace with your frontend domain
+  origin: '*', // Replace with your frontend domain
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));

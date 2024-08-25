@@ -63,13 +63,10 @@ function logout() {
 // Fetch and display trades on page load
 document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('token');
-
     if (!token) {
         window.location.href = 'index.html';
     }
 
-    // Fetch and display trades on page load
-    async function fetchTrades() {
         try {
             const response = await fetch('http://localhost:3000/daily/trades', {
                 method: 'GET',
@@ -85,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const trades = await response.json();
             const tradesList = document.getElementById('trades-list');
 
-            tradesList.innerHTML = ''; // Clear any existing content
             trades.forEach(trade => {
                 const tradeItem = document.createElement('div');
                 tradeItem.className = 'trade-item';
@@ -110,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fetchTrades();
 });
-
 
 // Add new trade
 document.getElementById('add-trade-button').addEventListener('click', async function() {
