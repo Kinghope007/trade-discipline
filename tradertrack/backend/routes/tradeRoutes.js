@@ -80,8 +80,9 @@ router.post('/trades', upload.single('screenshot'), verifyToken, async (req, res
         timeFrame,
         tradeDate
     } = req.body;
-    const screenshotUrl = req.file ? `uploads/${req.file.filename}` : '';
 
+    const screenshotUrl = req.file ? `/uploads/screenshots/${req.file.filename}` : null;
+    
     const newTrade = new Trade({
         user: req.user._id,
         tradingStrategy,
@@ -93,7 +94,7 @@ router.post('/trades', upload.single('screenshot'), verifyToken, async (req, res
         indicatorsUsed,
         timeFrame,
         tradeDate,
-        screenshotUrl, // Save the screenshot path
+        screenshotUrl: `screenshots/${req.file.filename}`, // Save the screenshot path
     });
     
     console.log("New Trade:", newTrade);  

@@ -12,7 +12,7 @@ const TradeSchema = new Schema({
   timeFrame: { type: String, required: true },
   screenshot: { type: String },
   tradeDate: { type: Date, required: true },
-  screenshotUrl: { type: String, required: true },
+  screenshotUrl: { type: String},
 });
 
 module.exports = model('Trade', TradeSchema);

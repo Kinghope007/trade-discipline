@@ -7,16 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Trade Discipline</h1>
+   
     
     <!-- Login and Register Containers -->
     <div class="auth-container">
         <!-- Login Form -->
+        
+            <p style="padding: 10px 10px 10px 10px; color: rgb(249, 249, 249); font-family: 'Courier New', Courier, monospace;" > 
+                <br>
+                A web application designed to help traders keep track of their trading plans,
+                <br>
+                risk management,
+                <br>
+                trading systems,
+                <br>
+                and trade records and develop discipline.
+                <br>
+                It allows users to record trade details including trade amounts,
+                <br>
+                strategies,
+                <br>
+                risk management,
+                <br>
+                and strategy screenshots,
+                <br>    
+                making it easier to analyze and improve trading performance.
+                <br>
+                <abbr style="color: rgb(220, 200, 200); ; font-style: italic; font-size: x-large; font-weight: bolder;">TRADE DISCIPLINE</abbr>
+            </p>
+
         <div class="form-container" id="login-container">
             <form id="login-form">
-                <input type="email" id="login-email" placeholder="Email" required>
-                <input type="password" id="login-password" placeholder="Password" required>
+                <input type="email" id="login-email" placeholder="Email" required autocomplete="email">
+                <input type="password" id="login-password" placeholder="Password" required autocomplete="current-password">
                 <button type="button" id="login-button">Login</button>
+                <p>Don't have an account? <span id="register-toggle">Register</span></p>
             </form>
         </div>
 
@@ -24,8 +49,8 @@
         <div class="form-container" id="register-container">
             <form id="register-form">
                 <input type="text" id="register-name" placeholder="Name" required>
-                <input type="email" id="register-email" placeholder="Email" required>
-                <input type="password" id="register-password" placeholder="Password" required>
+                <input type="email" id="register-email" placeholder="Email" required autocomplete="email">
+                <input type="password" id="register-password" placeholder="Password" required autocomplete="new-password">
                 <button type="button" id="register-button">Register</button>
             </form>
         </div>
@@ -33,9 +58,13 @@
 
     <!-- Dashboard Content -->
     <div class="dashboard-container" id="dashboard-container" style="display:none;">
+        <div class="user-info">
+            <h1 id="user-name"></h1>
+            <p id="user-email"></p>
+        </div>
         <div class="trade-details">
             <h2>Add a New Trade</h2>
-            <form id="new-trade-form">
+            <form id="new-trade-form" enctype="multipart/form-data">
                 <input type="text" id="trading-strategy" placeholder="Trading Strategy" required>
                 <input type="text" id="trading-plan" placeholder="Trading Plan" required>
                 <input type="number" id="amount-traded" placeholder="Amount Traded" required>
@@ -45,6 +74,7 @@
                 <input type="text" id="indicators-used" placeholder="Indicators Used" required>
                 <input type="text" id="time-frame" placeholder="Time Frame" required>
                 <input type="date" id="trade-date" placeholder="Trade Date" required>
+                <input type="file" id="screenshotUrl" name="screenshot" accept="image/*">
                 <button type="button" id="add-trade-button">Add Trade</button>
             </form>
         </div>
@@ -56,6 +86,7 @@
         </div>
         <button id="logout-button" class="logout-button">Logout</button>
     </div>
+    <a href="https://github.com/Kinghope007" style="padding: 10px;">https://github.com/Kinghope007</a>
 
     <script src="script.js"></script>
 </body>
